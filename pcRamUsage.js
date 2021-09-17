@@ -1,4 +1,3 @@
-const http = require('http');
 const os = require('os');
 
 
@@ -11,7 +10,7 @@ setInterval(() => {
 	const fRAM = freemem() / 1024 / 1024;
 	const usage = (fRAM / tRAM) * 100;
 
-	const status = {
+	const stats = {
 		OS: platform(),
 		Arch: arch(),
 		TotalRAM: `${parseInt(tRAM)} MB`,
@@ -20,7 +19,9 @@ setInterval(() => {
 	};
 
 	console.clear();
-	console.table(status);
+	console.table(stats);
+	
+	exports.stats = stats;
 }, 1000);
 
 
